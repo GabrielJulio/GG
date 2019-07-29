@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        footer{
+            background-color: #696969;
+            padding: 11px;
+            padding-top: 0px; 
+            padding-bottom: 20px; 
+            margin-top: 15px;
+            margin-left: -8px;
+            color: white;
+            position: absolute;
+            bottom: 0;
+            width: 98.4%;
+            height: 60px;
+            text-align: center;
+        }
+        footer p{
+            text-align: center;
+            text-shadow: 2px 2px 1px black;
+            color: white;
+        }
+    </style>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+    {% block main %}
+    {% endblock %}
+
+    {% block footer %}
+            <footer>
+				<p>
+					Desenvolvido por GabrielJulioBS
+					<br>com Django 2.2
+                    <br>Copyright &copy; 2019
+				</p>
+			</footer>
+    {% endblock %}
+
+
+</body>
+</html>
