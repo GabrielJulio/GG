@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock %}
+
+{% block main %}
+<h2> Página de Listagem de viagens</h2>
+<h3>Viagens:</h3><ul>
+	{% for viagem in viagens %}
+		<p>
+			<li><b>{{ viagem }}</b>
+			<br> <b>Veículo:</b> {{ viagem.veiculo }}
+			<br> <b>Motorista:</b> {{ viagem.motorista }}
+			<br> <b>Data:</b> {{  viagem.data }}
+		</p>
+	{% endfor %}
+</ul>
+{% endblock %}
