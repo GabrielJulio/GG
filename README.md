@@ -1,2 +1,2 @@
 # GG
-Sistema de Gestão desenvolvido para Giga7
+Sistema de Gestão desenvolvido para Giga7 Telecom
