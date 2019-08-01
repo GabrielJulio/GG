@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Veiculos{% endblock %}
+
+{% block main %}
+<h2> Página de Listagem de veiculos</h2>
+<h3>Veiculos:</h3><ul>
+	{% for veiculo in veiculos %}
+		<p>
+			<li><b>{{ veiculo }}</b>
+			<br> <b>Marca:</b> {{ veiculo.marca }}
+			<br> <b>Ano:</b> {{ veiculo.ano }}
+		</p>
+	{% endfor %}
+</ul>
+{% endblock %}

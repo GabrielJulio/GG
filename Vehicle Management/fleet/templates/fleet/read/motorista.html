@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Motoristas{% endblock %}
+
+{% block main %}
+<h2> Página de Listagem de motorista</h2>
+<h3>Motoristas:</h3><ul>
+	{% for motorista in motoristas %}
+		<p>
+			{{ motorista.pk }} &#8226 <b>{{ motorista }}</b>
+			<br> <b>Data de nascimento:</b> {{ motorista.data_nascimento }}
+		</p>
+	{% endfor %}
+</ul>
+{% endblock %}
