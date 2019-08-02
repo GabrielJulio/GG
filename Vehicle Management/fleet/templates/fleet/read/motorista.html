@@ -8,7 +8,7 @@
 <ul>
 	{% for motorista in motoristas %}
 		<p>
-			{{ motorista.pk }} &#8226 <b>{{ motorista }}</b> - <a href="{% url 'atualizar_motorista' motorista.id %}" style="color:limegreen;">Atualizar</a>
+			<li>{{ motorista }}</b> - <a href="{% url 'atualizar_motorista' motorista.id %}" style="color:limegreen;">Atualizar</a></li>
 			<br> <b>Data de nascimento:</b> {{ motorista.data_nascimento }}
 			<br> <a href="{% url 'apagar_motorista' motorista.id %}" style="color:red;">Apagar</a>
 		</p>
