@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Confirmação{% endblock %}
+
+{% block main %}
+{% if viagem %}
+    <h2>Tem certeza que deseja apagar {{ viagem }}?</h2>
+    <h3>Detalhes:</h3>
+    <p>
+        <li>
+            <b>{{ viagem }}</b> - <a href="{% url 'atualizar_viagem' viagem.id %}" style="color:limegreen;">Atualizar</a>
+            <br> <b>Veículo:</b> {{ viagem.veiculo }}
+            <br> <b>Motorista:</b> {{ viagem.motorista }}
+            <br> <b>Data:</b> {{  viagem.data }}
+        </li>
+    </p>
+{% elif motorista %}
+    <h2>Tem certeza que deseja apagar {{ motorista }}?</h2>
+    <h3>Detalhes:</h3>
+    <p>
+        <li>
+            <b>{{ motorista }}</b> - <a href="{% url 'atualizar_motorista' motorista.id %}" style="color:limegreen;">Atualizar</a>
+            <br> <b>Data de nascimento:</b> {{ motorista.data_nascimento }}
+        </li>
+    </p>
+{% elif veiculo %}
+    <h2>Tem certeza que deseja apagar {{ veiculo }}?</h2>
+    <h3>Detalhes:</h3>
+    <p>
+    <li><b>{{ veiculo }}</b> - <a href="{% url 'atualizar_veiculo' veiculo.id %}" style="color:limegreen;">Atualizar</a>
+        <br> <b>Marca:</b> {{ veiculo.marca }}
+        <br> <b>Ano:</b> {{ veiculo.ano }}
+    </li>
+    </p>
+{% endif %}
+<p>
+    <button type="submit">Apagar</button>
+</p>
+</p>
+{% endblock %}
