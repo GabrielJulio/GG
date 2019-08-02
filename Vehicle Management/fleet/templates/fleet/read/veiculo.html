@@ -2,13 +2,16 @@
 {% block title %}Veiculos{% endblock %}
 
 {% block main %}
-<h2> Página de Listagem de veiculos</h2>
-<h3>Veiculos:</h3><ul>
+<h2>Página de Listagem de veiculos</h2>
+<h3>Veiculos:</h3>
+<a href="{% url 'novo_veiculo' %}"  style="color:blue;">Novo veiculo</a>
+<ul>
 	{% for veiculo in veiculos %}
 		<p>
-			<li><b>{{ veiculo }}</b>
+			<li><b>{{ veiculo }}</b> - <a href="{% url 'atualizar_veiculo' veiculo.id %}" style="color:limegreen;">Atualizar</a>
 			<br> <b>Marca:</b> {{ veiculo.marca }}
 			<br> <b>Ano:</b> {{ veiculo.ano }}
+			<br> <a href="{% url 'apagar_veiculo' veiculo.id %}" style="color:red;">Apagar</a>
 		</p>
 	{% endfor %}
 </ul>

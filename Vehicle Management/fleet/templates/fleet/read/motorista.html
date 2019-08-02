@@ -3,11 +3,14 @@
 
 {% block main %}
 <h2> Página de Listagem de motorista</h2>
-<h3>Motoristas:</h3><ul>
+<h3>Motoristas:</h3>
+<a href="{% url 'novo_motorista' %}"  style="color:blue;">Novo motorista</a>
+<ul>
 	{% for motorista in motoristas %}
 		<p>
-			{{ motorista.pk }} &#8226 <b>{{ motorista }}</b>
+			{{ motorista.pk }} &#8226 <b>{{ motorista }}</b> - <a href="{% url 'atualizar_motorista' motorista.id %}" style="color:limegreen;">Atualizar</a>
 			<br> <b>Data de nascimento:</b> {{ motorista.data_nascimento }}
+			<br> <a href="{% url 'apagar_motorista' motorista.id %}" style="color:red;">Apagar</a>
 		</p>
 	{% endfor %}
 </ul>

@@ -2,14 +2,17 @@
 {% block title %}Viagems{% endblock %}
 
 {% block main %}
-<h2> Página de Listagem de viagens</h2>
-<h3>Viagens:</h3><ul>
+<h2>Página de Listagem de viagens</h2>
+<h3>Viagens:</h3>
+<a href="{% url 'nova_viagem' %}"  style="color:blue;">Nova viagem</a>
+<ul>
 	{% for viagem in viagens %}
 		<p>
-			<li><b>{{ viagem }}</b>
+			<li><b>{{ viagem }}</b> - <a href="{% url 'atualizar_viagem' viagem.id %}" style="color:limegreen;">Atualizar</a>
 			<br> <b>Veículo:</b> {{ viagem.veiculo }}
 			<br> <b>Motorista:</b> {{ viagem.motorista }}
 			<br> <b>Data:</b> {{  viagem.data }}
+			<br> <a href="{% url 'apagar_viagem' viagem.id %}" style="color:red;">Apagar</a>
 		</p>
 	{% endfor %}
 </ul>
