@@ -25,7 +25,7 @@ SECRET_KEY = '0x6q(ej2gd1&e^a#3fh^xib2dlu!mia@a_4(g)^!)ku7bh_g+w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '10.0.0.108']
+ALLOWED_HOSTS = ['localhost', '192.168.1.50']
 
 
 # Application definition
@@ -122,5 +122,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    'var/ww/static',
+    'var/www/static',
 ]
+
+LOGIN_REDIRECT_URL = '/'

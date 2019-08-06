@@ -1,9 +1,12 @@
-{% extends 'base.html' %}
-{% block title %}Viagems{% endblock %}
+{% extends 'fleet/index.html' %}
+{% block title %}Viagens{% endblock %}
+
+{% block corescura %}
+<h1>Listagem de viagens</h1>
+{% endblock %}
 
 {% block main %}
-<h2>Página de Listagem de viagens</h2>
-<h3>Viagens:</h3>
+{% if user.is_authenticated %}
 <a href="{% url 'nova_viagem' %}"  style="color:blue;">Nova viagem</a>
 <ul>
 	{% for viagem in viagens %}
@@ -16,4 +19,5 @@
 		</p>
 	{% endfor %}
 </ul>
+{% endif %}
 {% endblock %}

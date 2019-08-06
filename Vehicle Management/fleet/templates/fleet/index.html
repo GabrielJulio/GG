@@ -1,6 +1,53 @@
-{% extends 'base.html' %}
+{% extends 'index.html' %}
 {% block title %}Página de Frota{% endblock%}
+
+{% block header %}
+    {% if not user.is_authenticated %}
+    <div class="botao_wrapper">
+        <a href="{% url 'entrar' %}">
+            <div class="login">
+                Entrar
+            </div>
+        </a>
+    </div>
+    {% else %}
+    <div class="botao_wrapper">
+        <a href="{% url 'sair' %}">
+            <div class="logout">
+                Sair
+            </div>
+        </a>
+    </div>
+    {% endif %}
+    <div class="botao_wrapper">
+        <a href="{% url 'frota_principal' %}">
+            <div class="pginicial">
+                Início
+            </div>
+        </a>
+    </div>
+{% endblock %}
+
+{% block corescura %}
+    <h1>Seja bem vindo ao Frota!</h1>
+{% endblock %}
+
+{% block corclara %}
+    {% if user.is_authenticated %}
+        <div class="botao_app">
+            <a href="{% url 'listagem_viagem' %}">Viagens</a>
+        </div>
+        <div class="botao_app">
+            <a href="{% url 'listagem_motorista' %}">Motoristas</a>
+        </div>
+        <div class="botao_app">
+            <a href="{% url 'listagem_veiculo' %}">Veiculos</a>
+        </div>
+    {% else %}
+        <p>
+            Por favor <a href="{% url 'entrar' %}" style="color:limegreen;">entre aqui</a> para poder usar o app.
+        </p>
+    {% endif %}
+{% endblock %}
 {% block main %}
-<h2>Página inicial de Frotas</h2>
-seja bem-vindo, {{ user }}!
 {% endblock%}

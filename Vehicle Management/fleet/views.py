@@ -106,3 +106,7 @@ def apagar_veiculo(request, id):
 		veiculo.delete()
 		return redirect('listagem_veiculos')
 	return render(request, 'fleet/delete/confirmacao.html', {'veiculo': veiculo})
+
+def listagem_tudo(request):
+	data = {}
+	data['motorista']
