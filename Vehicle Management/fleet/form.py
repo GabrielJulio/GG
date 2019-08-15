@@ -21,8 +21,7 @@ class VeiculoForm(ModelForm):
 			'nome',
 			'marca',
 			'ano',
-			'placa_letras',
-			'placa_numeros',
+			'placa',
 			'observacoes'
 		]
 
@@ -32,5 +31,7 @@ class MotoristaForm(ModelForm):
 		fields = [
 			'nome',
 			'sobrenome',
+			'cpf',
 			'data_nascimento',
+			'observacoes'
 		]

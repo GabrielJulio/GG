@@ -1,0 +1,32 @@
+.testimonial{
+background: #CCC;
+padding: 7%;
+overflow: hidden;
+border-radius: 8px;
+margin: 2% 1%;
+}
+
+.test-info{
+display: flex;
+height: 60px;
+align-items: center;
+}
+
+.test-name{
+font-size: 15px;
+color: #333;
+}
+
+.test-name span{
+display: block;
+font-size: 16px;
+font-weight: 700;
+color: #3498db;
+}
+
+.testimonial p{
+color: black;
+font-size: 14px;
+line-height: 22px;
+margin-top: 20px;
+}

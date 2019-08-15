@@ -5,30 +5,33 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Veiculo(models.Model):
-	CARRO = "CR"
-	MOTO = "MT"
+	CARRO = "Carro"
+	MOTO = "Moto"
 	TIPO_VEICULO_ESCOLHAS = [
 	(CARRO, "Carro"),
 	(MOTO, "Moto"),
 	]
-	tipo_veiculo = models.CharField(max_length=2, choices=TIPO_VEICULO_ESCOLHAS, default=CARRO)	
+	tipo_veiculo = models.CharField(max_length=5, choices=TIPO_VEICULO_ESCOLHAS, default=CARRO)
 	nome = models.CharField(max_length=50)
 	marca = models.CharField(max_length=40)
 	ano = models.IntegerField(validators=[MinValueValidator(0, None), MaxValueValidator(9999, None)])
-	placa_letras = models.CharField(max_length=3)
-	placa_numeros = models.CharField(max_length=4)
+	placa = models.CharField(max_length=8)
 	observacoes = models.TextField(max_length=1500, blank=True)
 
 	def __str__(self):
-		return self.nome + " | Placa: " + self.placa_letras + "-" + str(self.placa_numeros)
+		return self.nome + " | Placa: " + self.placa
+
 
 class Motorista(models.Model):
 	nome = models.CharField(max_length=50)
 	sobrenome = models.CharField(max_length=50)
+	cpf = models.CharField(max_length=14)
 	data_nascimento = models.DateField("data de nascimento", blank=True)
+	observacoes = models.TextField(max_length=1500, blank=True)
 
 	def __str__(self):
 		return self.nome + " " + self.sobrenome
+
 
 class Viagem(models.Model):
 	veiculo = models.ForeignKey(Veiculo, on_delete=None)

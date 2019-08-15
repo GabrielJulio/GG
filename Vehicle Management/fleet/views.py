@@ -14,7 +14,7 @@ def meu_logout(request):
 
 
 def index(request):
-	return render(request, 'fleet/index.html')
+	return render(request, 'fleet/read/listagem.html')
 
 
 def nova_viagem(request):
@@ -27,8 +27,8 @@ def nova_viagem(request):
 
 def listagem_viagem(request):
 	data = {}
-	data['viagens'] = Viagem.objects.all()
-	return render(request, 'fleet/read/viagem.html', data)
+	data['viagens'] = reversed(Viagem.objects.all())
+	return render(request, 'fleet/read/listagem.html', data)
 
 
 def atualizar_viagem(request, id):
@@ -58,8 +58,8 @@ def novo_motorista(request):
 
 def listagem_motorista(request):
 	data = {}
-	data['motoristas'] = Motorista.objects.all()
-	return render(request, 'fleet/read/motorista.html', data)
+	data['motoristas'] = reversed(Motorista.objects.all())
+	return render(request, 'fleet/read/listagem.html', data)
 
 
 def atualizar_motorista(request, id):
@@ -88,8 +88,8 @@ def novo_veiculo(request):
 
 def listagem_veiculo(request):
 	data = {}
-	data['veiculos'] = Veiculo.objects.all()
-	return render(request, 'fleet/read/veiculo.html', data)
+	data['veiculos'] = reversed(Veiculo.objects.all())
+	return render(request, 'fleet/read/listagem.html', data)
 
 
 def atualizar_veiculo(request, id):
@@ -106,7 +106,3 @@ def apagar_veiculo(request, id):
 		veiculo.delete()
 		return redirect('listagem_veiculos')
 	return render(request, 'fleet/delete/confirmacao.html', {'veiculo': veiculo})
-
-def listagem_tudo(request):
-	data = {}
-	data['motorista']

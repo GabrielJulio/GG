@@ -4,6 +4,29 @@
 .corclara{
 text-align: center;
 }
+input[type = "text"], input[type = "password"]{
+border:0;
+background: none;
+display: block;
+margin: 0.5% auto;
+text-align: center;
+border: 2px solid #3498DB;
+padding: 14px 10px;
+width: 10%;
+outline: none;
+color: black;
+border-radius: 24px;
+transition: 0.25s;
+}
+input[type = "text"]:focus, input[type = "password"]:focus{
+width: 15%;
+background: white;
+border-color: #2ECC71;
+}
+::placeholder{
+color: black;
+}
+
 {% endblock %}
 
 {% block title %}Página de login{% endblock %}
@@ -15,7 +38,8 @@ text-align: center;
 {% block corclara %}
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button class="botao_wrapper" style="color: white; float:none;" type="submit">Entrar</button>
+            <input type="text" name="username" autofocus="" required="" id="id_username" placeholder="Usuário">
+            <br><input type="password" name="password" autofocus="" required="" id="id_password" placeholder="Senha">
+            <br><button class="botao_wrapper" style="color: white; float:none;" type="submit">Entrar</button>
     </form>
 {% endblock %}

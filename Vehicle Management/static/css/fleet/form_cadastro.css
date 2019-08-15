@@ -1,0 +1,100 @@
+button, textarea, select, input[type = "text"], input[type = "password"], input[type = "number"]{
+background: #EDEDED;
+margin: 0.5%;
+text-align: center;
+border: 2px solid #3498DB;
+padding: 14px 10px;
+width: 20%;
+outline: none;
+color: black;
+border-radius: 24px;
+transition: 0.5s;
+}
+select{
+width:30%;
+}
+button{
+width:15%;
+background: #FFF;
+}
+.cancelar:link, .cancelar:visited{
+margin: 0.5%;
+text-align: center;
+border: 2px solid #3498DB;
+padding: 14px 10px;
+width: 20%;
+outline: none;
+color: black;
+border-radius: 24px;
+background: white;
+transition:0.25s;
+}
+.apagar:link, .apagar:visited{
+margin: 0.5%;
+text-align: center;
+border: 2px solid #3498DB;
+padding: 14px 10px;
+width: 20%;
+outline: none;
+color: black;
+border-radius: 24px;
+background: white;
+transition:0.25s;
+}
+button:hover{
+background: green;
+color: white;
+border-color: limegreen;
+transition:0.25s;
+}
+.cancelar:hover{
+background: #9A0;
+border-color: #FD0;
+transition:0.15s;
+color:white;
+}
+.apagar:hover{
+background: darkred;
+border-color: orangered;
+transition:0.15s;
+color:white;
+}
+form{
+text-align: center;
+}
+input[type = "text"]:focus, input[type = "password"]:focus, input[type = "number"]:focus{
+width: 37%;
+background: white;
+border-color: #2ECC71;
+}
+textarea:focus, input[type = "text"]:focus{
+background: white;
+border-color: #2ECC71;
+}
+textarea{
+width:30%;
+}
+textarea:focus{
+width:60%;
+}
+::placeholder{
+color: black;
+}
+p{
+text-align: center;
+}
+.column{
+float: left;
+width: 47%;
+text-align: center;
+background: #DDD;
+padding: 0.2%;
+overflow: hidden;
+border-radius: 8px;
+margin: 2% 1%;
+}
+.row:after{
+content:"";
+display: table;
+clear: both;
+}

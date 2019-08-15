@@ -1,0 +1,100 @@
+{% extends 'fleet/index.html' %}
+{% block title %}Viagens{% endblock %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/fleet/listagem.css' %}">
+{% endblock %}
+
+{% block corescura %}
+	{% if viagens %}
+		<h2>Listagem de viagens</h2>
+	{% elif motoristas %}
+		<h2>Listagem de motoristas</h2>
+	{% elif veiculos %}
+		<h2>Listagem de veículos</h2>
+	{% else %}
+		<h2>Você está no app Frota!</h2>
+	{% endif %}
+
+{% endblock %}
+
+{% block main %}
+{% if user.is_authenticated %}
+	{% if viagens %}
+		<a class="botao_wrapper" href="{% url 'nova_viagem' %}"  style="float:none; margin-top: 1%;">Nova<br>viagem</a>
+			<div class="slides owl-carousel">
+				{% for viagem in viagens %}
+					<a href="{% url 'atualizar_viagem' viagem.id %}">
+						<div class="testimonial">
+							<div class="test-info">
+								<div class="test-name">
+									<span>{{ viagem }}</span>
+									{{ viagem.data }} às {{ viagem.saida }}
+								</div>
+							</div>
+							<p>{{ viagem.observacoes }}	</p>
+						</div>
+					</a>
+				{% endfor %}
+			</div>
+	{% elif motoristas %}
+		<a class="botao_wrapper" href="{% url 'novo_motorista' %}"  style="float:none; margin-top: 1%;">Novo<br>motorista</a>
+		<div class="slides owl-carousel">
+			{% for motorista in motoristas %}
+			<a href="{% url 'atualizar_motorista' motorista.id %}">
+				<div class="testimonial">
+					<div class="test-info">
+						<div class="test-name">
+							<span>{{ motorista.nome }}</span>
+							{{ motorista.sobrenome }}
+						</div>
+					</div>
+					<p>{{ motorista.observacoes }}	</p>
+				</div>
+					</a>
+			{% endfor %}
+		</div>
+	{% elif veiculos %}
+		<a class="botao_wrapper" href="{% url 'novo_veiculo' %}"  style="float:none; margin-top: 1%;">Novo<br>veículo</a>
+		<div class="slides owl-carousel">
+			{% for veiculo in veiculos %}
+			<a href="{% url 'atualizar_veiculo' veiculo.id %}">
+				<div class="testimonial">
+					<div class="test-info">
+						<div class="test-name">
+							<span>{{ veiculo.nome }}</span>
+							<b>{{ veiculo.tipo_veiculo }}</b>
+							<br> Placa: {{ veiculo.placa }}
+						</div>
+					</div>
+					<p>{{ veiculo.observacoes }}</p>
+				</div>
+			</a>
+			{% endfor %}
+		</div>
+	{% endif %}
+
+	{{ viagem }}
+
+
+<script type="text/javascript">
+  $(".owl-carousel").owlCarousel({
+    margin:10,
+    responsiveClass:true,
+    responsive:{
+      0:{
+        items:1
+      },
+      680:{
+        items:2
+      },
+      960:{
+        items:3
+      }
+    }
+  });
+</script>
+
+{% endif %}
+{% endblock %}

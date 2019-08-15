@@ -1,35 +1,8 @@
 {% extends 'index.html' %}
 {% block title %}Página de Frota{% endblock%}
 
-{% block header %}
-    {% if not user.is_authenticated %}
-    <div class="botao_wrapper">
-        <a href="{% url 'entrar' %}">
-            <div class="login">
-                Entrar
-            </div>
-        </a>
-    </div>
-    {% else %}
-    <div class="botao_wrapper">
-        <a href="{% url 'sair' %}">
-            <div class="logout">
-                Sair
-            </div>
-        </a>
-    </div>
-    {% endif %}
-    <div class="botao_wrapper">
-        <a href="{% url 'frota_principal' %}">
-            <div class="pginicial">
-                Início
-            </div>
-        </a>
-    </div>
-{% endblock %}
-
 {% block corescura %}
-    <h1>Seja bem vindo ao Frota!</h1>
+    <h2>Você está no app Frota!</h2>
 {% endblock %}
 
 {% block corclara %}

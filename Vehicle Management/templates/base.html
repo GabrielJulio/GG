@@ -1,77 +1,20 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block css %}
+    {% endblock %}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <style>
-        body{
-        font-family:sans-serif;
-        margin: 0px;
-        }
-        .header{
-        background-color: white;
-        text-align: center;
-        padding: 15px;
-        overflow: hidden;
-        }
-        a:link, a:visited{
-        color: white;
-        text-decoration: none;
-        }
-        .botao_wrapper{
-        display: inline-block;
-        background-color: #2D6FC9;
-        text-align: center;
-        margin: 0.2% 1%;
-        padding: 1%;
-        width: 10%;
-        border-radius: 25px;
-        border: #2D6FC9 solid 3px;
-        float: right;
-        text-transform: uppercase;
-        font-weight: bold;
-        text-shadow: 2px 2px 1px black;
-        transition: 1s
-        }
-        .login, .logout, .pginicial{
-        display: inline-block;
-        }
-        .botao_wrapper:hover{
-        border: #57C04D solid 3px;
-        transition: 0.5s
-        }
-        .corescura{
-        background-color: #462344;
-        padding: 50px;
-        text-align: center;
-        color: white;
-        text-transform: uppercase;
-        font-weight: bold;
-        text-shadow: 2px 2px 1px black;
-        }
-        .corclara{
-        background-color: #B583A1;
-        padding: 15px;
-        overflow: hidden;
-        }
-        footer{
-            background-color: #696969;
-            color: white;
-            position: absolute;
-            bottom: 0;
-            text-align: center;
-            width:100%;
-        }
-        footer p{
-            text-align: center;
-            text-shadow: 2px 2px 1px black;
-            color: white;
-        }
-        {% block style %}
-        {% endblock %}
-    </style>
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
@@ -101,6 +44,10 @@
                 </div>
             </a>
         </div>
+        <b>Desenvolvido por GabrielJulioBS com Django 2.2
+            <br>Office Manager v0.7
+            <br>Copyright &copy; 2019
+        </b>
         {% endblock %}
     </div>
 
@@ -115,14 +62,7 @@
     {% block main %}
     {% endblock %}
 
+    {% block footer %}
+    {% endblock %}
 </body>
-{% block footer %}
-    <footer>
-        <p>
-            Desenvolvido por GabrielJulioBS
-            <br>com Django 2.2
-            <br>Copyright &copy; 2019
-        </p>
-    </footer>
-{% endblock %}
 </html>
