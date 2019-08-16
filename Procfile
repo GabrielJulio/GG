@@ -1,1 +1,1 @@
-web: gunicorn Vehicle Management/VM.wsgi --log-file
+web: gunicorn VM.wsgi --log-file
