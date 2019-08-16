@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['localhost', '192.168.1.50', 'https://g7-om.herokuapp.com/']
+ALLOWED_HOSTS = ['g7-om.herokuapp.com']
 
 
 # Application definition
