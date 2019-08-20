@@ -1,29 +1,25 @@
 # Office Manager
 Sistema de gestão personalizado desenvolvido para Giga7 Telecom.
-[Histórico de atualizações](https://github.com/GabrielJulio/GG/commits/master)
 
-### Atualizações majoritárias:
-1. __Atualização - *Frota*__
-    1. [x] Lançamento do sistema [Office Manager G7](https://g7-om.herokuapp.com/) no [Heroku](http://heroku.com). 
-    1. [x] Lançamento da app Frota.
-    1. [ ] Barra de pesquisa própria da app.
-      
-1. __Atualização - *CBV*__
-    1. [ ] Refatoração da app Frota para CBV.
+- [Atualizações](https://github.com/GabrielJulio/GG/blob/master/README.md)
 
-1. __Atualização 3 - *Estoque*__
-    1. [ ] Lançamento da app Estoque.
-    1. [ ] Barra de pesquisa própria da app.
-    1. [ ] Coloração própria da app (não decidido ainda se terá estilo/design próprio).
+### Atualizações principais:
+1. __Atualização *Liguem os Faróis*__
+1. __Atualização *Melhores Práticas*__
+1. __Atualização - *Estoque*__
+1. __Atualização - *Despesas*__
+1. __Atualização - Update Final (não decidido ainda)__
+    1. Tarefas à serem definidas.
 
-1. __Atualização 4 - *Despesas*__
-    1. [ ] Lançamento da app Despesas.
-    1. [ ] Barra de Pesquisa própria.
-    1. [ ] Coloração Própria (não decidido ainda se terá estilo próprio).
+##Todas as atualizações
+- [x]** Lançamento do sistema [Office Manager G7](https://g7-om.herokuapp.com/) no [Heroku](http://heroku.com). + Lançamento da app Frota.**
+- [ ]** Barra de pesquisa própria da app Frota.**
+- [ ] **Refatoração da app Frota para CBV (futuras apps serão produzidas com Class-Based Views).**
+- [ ] **Lançamento da app Estoque.**
+- [ ] **Barra de pesquisa própria da app Estoque.**
+- [ ] **Lançamento da app Despesas.**
+- [ ] **Barra de pesquisa própria da app Despesas.**
 
-1. __Atualização 5 - Update Final (não decidido ainda)__
-    1. [ ] Tarefas à serem definidas.
-    
 ### Tecnologias utilizadas:
 1. [HTML](https://www.w3.org/html/)
 1. [CSS](https://www.w3.org/Style/CSS/)
