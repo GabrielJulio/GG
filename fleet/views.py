@@ -26,9 +26,8 @@ def nova_viagem(request):
 
 
 def listagem_viagem(request):
-	data = {}
-	data['viagens'] = reversed(Viagem.objects.all())
-	return render(request, 'fleet/read/listagem.html', data)
+	data = reversed(Viagem.objects.all())
+	return render(request, 'fleet/read/listagem.html', {'viagens': data})
 
 
 def atualizar_viagem(request, id):
