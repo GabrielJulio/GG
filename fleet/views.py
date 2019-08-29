@@ -103,5 +103,5 @@ def apagar_veiculo(request, id):
 	veiculo = Veiculo.objects.get(pk=id)
 	if request.method == 'POST':
 		veiculo.delete()
-		return redirect('listagem_veiculos')
+		return redirect('listagem_veiculo')
 	return render(request, 'fleet/delete/confirmacao.html', {'veiculo': veiculo})
