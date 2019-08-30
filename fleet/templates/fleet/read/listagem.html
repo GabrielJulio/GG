@@ -1,8 +1,8 @@
 {% extends 'fleet/index.html' %}
 {% block title %}
 	{% if viagem %} Viagens
-	{% if motorista %} Motorista
-	{% if veiculo %} Veiculo
+	{% elif motorista %} Motorista
+	{% elif veiculo %} Veiculo
 	{% endif %}
 {% endblock %}
 {% load static %}
