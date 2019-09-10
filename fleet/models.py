@@ -26,7 +26,7 @@ class Motorista(models.Model):
 	nome = models.CharField(max_length=50)
 	sobrenome = models.CharField(max_length=50)
 	cpf = models.CharField(max_length=14)
-	data_nascimento = models.DateField("data de nascimento", blank=True)
+	data_nascimento = models.DateField("data de nascimento", null=True)
 	observacoes = models.TextField(max_length=1500, blank=True)
 
 	def __str__(self):
