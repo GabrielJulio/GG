@@ -4,72 +4,121 @@
 {% block title %}Formulario de Cadastro{% endblock %}
 
 {% block main %}
-<h1 class="red white-text">
-    Página sendo reformada visualmente, porem funcionando normalmente.
-</h1>
-<h3>- JavaScript já ok!</h3>
-{% if user.is_authenticated %}
-<form method="POST">
-	{% csrf_token %}
-
-    {% if form.veiculo %}
-        <div class="row">
-            <div class="column">
-                <h1>Principal</h1>
-                <p>Veiculo:<br> {{ form.veiculo }}</p>
-                <p>Motorista:<br> {{ form.motorista }}</p>
-                <p>Observações:<br> {{ form.observacoes }}</p>
+<div class="container">
+    {% if user.is_authenticated %}
+        <form method="POST">
+            {% csrf_token %}
+            {% if form.veiculo %}
+                <div class="row">
+                    <div class="row col s12 m6">
+                        <h1 class="col s12 m6 push-m3 btn light-blue z-depth-0" style="cursor: default;">Principal</h1>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="input-field">
+                            <p>Veiculo:<br> {{ form.veiculo }}</p>
+                            <p>Motorista:<br> {{ form.motorista }}</p>
+                            <p>Observações:<br> <textarea class="materialize-textarea" name="observacoes" cols="40" rows="10" maxlength="1500" id="id_observacoes">{{ form.initial.observacoes }}</textarea></p>
+                        </div>
+                    </div>
+                    <div class="row col s12 m6">
+                        <h1 class="col s12 m6 push-m3 btn blue zdepth-0" style="cursor: default;">Detalhes</h1>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="input-field">
+                            <p><br>Data da viagem:<br> {{ form.data }}</p>
+                            <p>Horário da saída:<br> {{ form.saida }}</p>
+                            <p>Horário do retorno:<br> {{ form.retorno }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% elif form.tipo_veiculo %}
+                <div class="row">
+                    <div class="row col s12 m6">
+                        <h1 class="col s12 m6 push-m3 btn light-blue z-depth-0" style="cursor: default;">Principal</h1>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="input-field">
+                            <p>Tipo de veículo:<br> {{ form.tipo_veiculo }}</p>
+                            <p>Nome:<br> {{ form.nome }}</p>
+                            <p>Marca:<br> {{ form.marca }}</p>
+                            <p>Ano:<br> {{ form.ano }}</p>
+                        </div>
+                    </div>
+                    <div class="row col s12 m6">
+                        <h1 class="col s12 m6 push-m3 btn blue zdepth-0" style="cursor: default;">Detalhes</h1>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="input-field">
+                            <p>Placa do veículo:<br> {{ form.placa }}</p>
+                            <p>Observações:<br> <textarea class="materialize-textarea" name="observacoes" cols="40" rows="10" maxlength="1500" id="id_observacoes">{{ form.initial.observacoes }}</textarea></p>
+                        </div>
+                    </div>
+                </div>
+            {% elif form.data_nascimento %}
+                <div class="row">
+                    <div class="row col s12 m6">
+                        <h1 class="col s12 m6 push-m3 btn light-blue z-depth-0" style="cursor: default;">Principal</h1>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="input-field">
+                            <p>Nome:<br>{{ form.nome }}</p>
+                            <p>CPF:<br>{{ form.cpf }}</p>
+                        </div>
+                    </div>
+                    <div class="row col s12 m6">
+                        <h1 class="col s12 m6 push-m3 btn blue zdepth-0" style="cursor: default;">Detalhes</h1>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="input-field">
+                            <p>Data de nascimento:<br>{{ form.data_nascimento }}</p>
+                            <p>Observações:<br> <textarea class="materialize-textarea" name="observacoes" cols="40" rows="10" maxlength="1500" id="id_observacoes">{{ form.initial.observacoes }}</textarea></p>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="row">
+                <button class="col s2 push-s1 m2 push-m1 btn green accent-4" type="submit">
+                    <b>Salvar</b>
+                </button>
+                <a class="col s3 push-s2 m2 push-m3 btn amber" href="{% url 'pgprincipal' %}">
+                    <b>Cancelar</b>
+                </a>
+                {% if form.instance.id %}
+                    {% if form.veiculo %}
+                        <a class="col s2 push-s3 m2 push-m5 btn red" href="{% url 'apagar_viagem' form.instance.id %}">
+                            <b>Apagar</b>
+                        </a>
+                    {% elif form.tipo_veiculo %}
+                        <a class="col s2 push-s3 m2 push-m5 btn red" href="{% url 'apagar_veiculo' form.instance.id %}">
+                            <b>Apagar</b>
+                        </a>
+                    {% elif form.data_nascimento %}
+                        <a class="col s2 push-s3 m2 push-m5 btn red" href="{% url 'apagar_motorista' form.instance.id %}">
+                            <b>Apagar</b>
+                        </a>
+                    {% endif %}
+                {% endif %}
             </div>
-            <div class="column">
-                <h1>Detalhes</h1>
-                <p><br>Data da viagem:<br> {{ form.data }}</p>
-                <p><br>Horário da saída:<br> {{ form.saida }}</p>
-                <p><br>Horário do retorno:<br> {{ form.retorno }}</p>
-            </div>
-        </div>
-    {% elif form.tipo_veiculo %}
-        <div class="row">
-            <div class="column">
-                <h1>Principal</h1>
-                <p>Tipo de veículo:<br> {{ form.tipo_veiculo }}</p>
-                <p>Nome:<br> {{ form.nome }}</p>
-                <p>Marca:<br> {{ form.marca }}</p>
-                <p>Ano:<br> {{ form.ano }}</p>
-            </div>
-            <div class="column">
-                <h1>Detalhes</h1>
-                <p>Placa do veículo:<br> {{ form.placa }}</p>
-                <p>Observações:<br> {{ form.observacoes }}</p>
-            </div>
-        </div>
-    {% elif form.data_nascimento %}
-        <div class="row">
-            <div class="column">
-                <h1>Principal</h1>
-                <p>Nome:<br>{{ form.nome }}</p>
-                <p>Sobrenome:<br>{{ form.sobrenome }}</p>
-                <p>CPF:<br>{{ form.cpf }}</p>
-            </div>
-            <div class="column">
-                <h1>Detalhes</h1>
-                <p>Data de nascimento:<br>{{ form.data_nascimento }}</p>
-                <p>Observações:<br>{{ form.observacoes }}</p>
-            </div>
-        </div>
+        </form>
     {% endif %}
-	<button type="submit">Salvar</button>
-    <a class="cancelar" href="{% url 'pgprincipal' %}">Cancelar alterações</a>
-    {% if form.instance.id %}
-        {% if form.veiculo %}
-            <a class="apagar" href="{% url 'apagar_viagem' form.instance.id %}">Apagar Viagem</a>
-        {% elif form.tipo_veiculo %}
-            <a class="apagar" href="{% url 'apagar_veiculo' form.instance.id %}">Apagar Veiculo</a>
-        {% elif form.data_nascimento %}
-            <a class="apagar" href="{% url 'apagar_motorista' form.instance.id %}">Apagar Motorista</a>
-        {% endif %}
-    {% endif %}
-</form>
-{% endif %}
+</div>
 {% endblock %}
 
 {% block js %}
