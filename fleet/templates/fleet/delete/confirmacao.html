@@ -1,74 +1,110 @@
 {% extends 'fleet/index.html' %}
+{% load static %}
+
 {% block title %}Confirmação de Deleção{% endblock %}
-{% load static%}
-{% block css %}
-<link rel="stylesheet" href="{% static 'css/fleet/confirmacao.css' %}">
-{% endblock %}
-
-{% block corescura %}
-    <h2>Tem certeza que deseja apagar
-        {% if viagem %}a viagem{% endif %}
-        {% if veiculo %}o veículo{% endif %}
-        {% if motorista %}o motorista{% endif %}
-        a baixo?
-    </h2>
-{% endblock %}
-
-{% block corclara %}
-    {% if viagem %}
-        <a href="{% url 'atualizar_viagem' viagem.id %}">
-            <div class="botao_app" style="margin:1% 40%;">{{ viagem }}</div>
-        </a>
-    {% elif motorista %}
-        <a href="{% url 'atualizar_motorista' motorista.id %}">
-            <div class="botao_app" style="margin:1% 40%;">{{ motorista.nome }}</div>
-        </a>
-    {% elif veiculo %}
-        <a href="{% url 'atualizar_veiculo' veiculo.id %}">
-            <div class="botao_app" style="margin:1% 40%;">{{ veiculo.nome }}</div>
-        </a>
-    {% endif %}
-{% endblock %}
 
 {% block main %}
-{% if viagem %}
-    <div class="column">
-        <p><b>Veiculo:</b><br> {{ viagem.veiculo }}</p>
-        <p><b>Motorista:</b><br> {{ viagem.motorista }}</p>
-        <p><b>Data da viagem:</b><br> {{ viagem.data }}</p>
-        <p><b>Horário da saída:</b><br> {{ viagem.saida }}</p>
-        <p><b>Horário do retorno:</b><br> {{ viagem.retorno }}</p>
-        <p><b>Observações:</b><br> {{ viagem.observacoes }}</p>
+    <div class="container">
+        <div class="row">
+            <div class="row">
+                <br>
+                <p class="col s12 m8 push-m2 btn red darken-1">
+                    <b>
+                        Confirma apagar
+                        {% if viagem %}a viagem{% endif %}
+                        {% if veiculo %}o veículo{% endif %}
+                        {% if motorista %}o motorista{% endif %}
+                        a baixo?
+                    </b>
+                </p>
+            </div>
+            <div class="row col s12 m6 push-m3">
+                {% if viagem %}
+                    <a href="{% url 'atualizar_viagem' viagem.id %}">
+                        <div class="card hoverable light-blue accent-4">
+                            <div class="card-content white-text">
+                                <span class="card-title">{{ viagem.data }}</span>
+                                <p>
+                                    <b>Horário:</b> {{ viagem.saida }} ~
+                                    {% if viagem.retorno == None %}
+                                    {% else %}
+                                    {{ viagem.retorno }}
+                                    {% endif %}
+                                </p>
+                                <br>
+                                <p><b>Veiculo:</b> {{ viagem.veiculo }}</p>
+                                <br>
+                                <p><b>Motorista:</b> {{ viagem.motorista }}</p>
+                                <br>
+                                <p><b>Observações:</b>
+                                    <br>
+                                    {% if viagem.observacoes %}
+                                        {{ viagem.observacoes }}
+                                    {% else %}
+                                        --- Não foram feitas observações ---
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                {% elif motorista %}
+                    <a href="{% url 'atualizar_motorista' motorista.id %}">
+                        <div class="card hoverable light-blue accent-4">
+                            <div class="card-content white-text">
+                                <span class="card-title">{{ motorista.nome }}</span>
+                                <p>
+                                <p><b>CPF: </b>{{ motorista.cpf }}</p>
+                                <br>
+                                <p><b>Data de nascimento: </b>{{ motorista.data_nascimento }}</p>
+                                <br>
+                                <p><b>Observações: </b>
+                                    <br>
+                                    {% if motorista.observacoes %}
+                                        {{ motorista.observacoes }}
+                                    {% else %}
+                                        --- Não foram feitas observações ---
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                {% elif veiculo %}
+                    <a href="{% url 'atualizar_veiculo' veiculo.id %}">
+                        <div class="card hoverable light-blue accent-4">
+                            <div class="card-content white-text">
+                                <span class="card-title">{{ veiculo.nome }}</span>
+                                <p><b>{{ veiculo.tipo_veiculo }}</b></p>
+                                <br>
+                                <p><b>Marca:</b> {{ veiculo.marca }}</p>
+                                <br>
+                                <p><b>Placa do veículo:</b> {{ veiculo.placa }}</p>
+                                <br>
+                                <p><b>Ano:</b> {{ veiculo.ano }}</p>
+                                <br>
+                                <p><b>Observações: </b>
+                                    <br>
+                                    {% if motorista.observacoes %}
+                                    {{ motorista.observacoes }}
+                                    {% else %}
+                                    --- Não foram feitas observações ---
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                {% endif %}
+             <form method="POST">
+                 {% csrf_token %}
+                <p>
+                    <a class="col s4 push-s1 m3 push-m2 btn yellow darken-2" href="{% url 'pgprincipal' %}">
+                        Cancelar
+                    </a>
+                    <button class="col s4 push-s3 m3 push-m4 btn red" type="submit">
+                        Apagar
+                    </button>
+                </p>
+             </form>
+            </div>
+        </div>
     </div>
-{% elif motorista %}
-    <div class="column">
-        <p><b>Nome:</b><br>{{ motorista.nome }}</p>
-        <p><b>Sobrenome:</b><br>{{ motorista.sobrenome }}</p>
-        <p><b>CPF:</b><br>{{ motorista.cpf }}</p>
-        <p><b>Data de nascimento:</b><br>{{ motorista.data_nascimento }}</p>
-        <p><b>Observações:</b><br>{{ motorista.observacoes }}</p>
-    </div>
-{% elif veiculo %}
-    <div class="column">
-        <p><b>Tipo de veículo:</b><br> {{ veiculo.tipo_veiculo }}</p>
-        <p><b>Nome:</b><br> {{ veiculo.nome }}</p>
-        <p><b>Marca:</b><br> {{ veiculo.marca }}</p>
-        <p><b>Ano:</b><br> {{ veiculo.ano }}</p>
-        <p><b>Placa do veículo:</b><br> {{ veiculo.placa }}</p>
-        <p><b>Observações:</b><br> {{ veiculo.observacoes }}</p>
-    </div>
-{% endif %}
- <form method="POST">
-     {% csrf_token %}
-    <p>
-        <a class="cancelar" href="{% url 'frota_principal' %}">Cancelar</a>
-        {% if viagem %}
-            <button type="submit">Apagar Viagem</button>
-        {% elif veiculo %}
-        <button type="submit">Apagar Veículo</button>
-        {% elif motorista %}
-        <button type="submit">Apagar Motorista</button>
-        {% endif %}
-    </p>
- </form>
 {% endblock %}

@@ -9,17 +9,18 @@ Sistema de gestão personalizado desenvolvido para Giga7 Telecom.
 
 ## Metas
 - [x] **Lançamento do sistema [Office Manager G7](https://g7-om.herokuapp.com/) no [Heroku](http://heroku.com). + Lançamento da app Frota.**
-- [ ] **Barra de pesquisa própria da app Frota.**
-- [ ] **Refatoração da app Frota para CBV (futuras apps serão produzidas com Class-Based Views).**
+- [x] **Barra de pesquisa própria da app Frota.**
 - [ ] **Lançamento da app Estoque.**
 - [ ] **Lançamento da app Despesas.**
 - [ ] **Lançamento da app Agenda.**
 - [ ] **Lançamento da app Usuários.**
+- [ ] ~~**Refatoração da app Frota para CBV (futuras apps serão produzidas com Class-Based Views).**~~
 
 ### Tecnologias utilizadas:
 1. [HTML](https://www.w3.org/html/)
 1. [CSS](https://www.w3.org/Style/CSS/)
 1. [JavaScript](https://www.w3.org/standards/webdesign/script)
+1. [Materialize](https://materializecss.com/)
 1. [Python 3.7](https://www.python.org/)
 1. [Django 2.2](https://www.djangoproject.com/)
 1. [Git](https://git-scm.com/)

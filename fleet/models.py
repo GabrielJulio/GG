@@ -19,18 +19,17 @@ class Veiculo(models.Model):
 	observacoes = models.TextField(max_length=1500, blank=True)
 
 	def __str__(self):
-		return self.nome + " | Placa: " + self.placa
+		return self.nome
 
 
 class Motorista(models.Model):
 	nome = models.CharField(max_length=50)
-	sobrenome = models.CharField(max_length=50)
 	cpf = models.CharField(max_length=14)
 	data_nascimento = models.DateField("data de nascimento", null=True)
 	observacoes = models.TextField(max_length=1500, blank=True)
 
 	def __str__(self):
-		return self.nome + " " + self.sobrenome
+		return self.nome
 
 
 class Viagem(models.Model):

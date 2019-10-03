@@ -1,70 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 {% load static %}
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Gabriel Nogueira">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    {% block css %}
-    {% endblock %}
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Gabriel Julio">
 
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}{% endblock %}</title>
-</head>
-<body>
-    <div class="header">
-        {% block header %}
-        {% if not user.is_authenticated %}
-        <div class="botao_wrapper">
-            <a href="{% url 'entrar' %}">
-                <div class="login">
-                    Entrar
-                </div>
-            </a>
-        </div>
-        {% else %}
-        <div class="botao_wrapper">
-            <a href="{% url 'sair' %}">
-                <div class="logout">
-                    Sair
-                </div>
-            </a>
-        </div>
-        {% endif %}
-        <div class="botao_wrapper">
-            <a href="{% url 'pgprincipal' %}">
-                <div class="pginicial">
-                    Início
-                </div>
-            </a>
-        </div>
-        <b>Desenvolvido por GabrielJulioBS
-            <br>Sistema Office Manager v1.0.5
-            <br>Copyright &copy; 2019
-            <br><a style="color: blue;" href="https://github.com/GabrielJulio/GG/blob/master/README.md" target="_blank">Atualizações</a>
-        </b>
-        {% endblock %}
-    </div>
+        <!--Let the browser knows the webapp is optimized to mobile devices-->
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-    <div class="corescura">
-        {% block corescura %}
-        {% endblock %}
-    </div>
-    <div class="corclara">
-        {% block corclara %}
-        {% endblock %}
-    </div>
-    {% block main %}
-    {% endblock %}
+        <!--Importing JQuery for Materialize-->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-    {% block footer %}
-    {% endblock %}
-</body>
+        <!--Importing the Materialize framework-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <!--Importing Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        {% block css %}
+        {% endblock %}
+        <title>{% block title %}Título da Página{% endblock %}</title>
+    </head>
+
+    <body>
+        <!--Navbar-->
+        <header>
+            <div class="navbar-fixed">
+                <nav>
+                    <div class="nav-wrapper blue accent-2">
+                        <a href="{% url 'pgprincipal' %}" class="center brand-logo">
+                            Frota
+                        </a>
+                        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            <li>
+                                <a href="{% url 'pgprincipal' %}">Página Inicial</a>
+                            </li>
+                            {% if not user.is_authenticated %}
+                                <li>
+                                    <a href="{% url 'entrar' %}">Entrar</a>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <a href="{% url 'sair' %}">Sair</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <ul class="sidenav" id="mobile-demo">
+                <li>
+                    <a href="{% url 'pgprincipal' %}">Página Inicial</a>
+                </li>
+                {% if not user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'entrar' %}">Entrar</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{% url 'sair' %}">Sair</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </header>
+
+
+        <!--Main content-->
+        <main>
+            {% block main %}
+                Conteúdo principal da página
+            {% endblock %}
+        </main>
+
+
+
+
+
+        <!--Footer-->
+        <footer class="page-footer blue accent-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Sobre</h5>
+                        <p class="grey-text text-lighten-4">Desenvolvido por Gabriel Júlio
+                            <br>Sistema Office Manager v1.1.0
+                            <br><a class="yellow-text text-lighten-3" href="https://github.com/GabrielJulio/GG/blob/master/README.md" target="_blank">Atualizações</a>
+                        </p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Contato</h5>
+                        <ul>
+                            <li>
+                                <b><a class="grey-text text-lighten-3" href="https://github.com/GabrielJulio/">GitHub</a></b>
+                            </li>
+                            <li>
+                                <b><a class="grey-text text-lighten-3" href="https://api.whatsapp.com/send?1=pt_BR&phone=5585996036564">Whatsapp</a></b>
+                            </li>
+                            <li>
+                                <b><a class="grey-text text-lighten-3" href="#!">Discord - gabrieljuliobs#5606</a></b>
+                            </li>
+                            <li>
+                                <b><a class="grey-text text-lighten-3" href="mailto:gabriljuliobs@gmail.com?subject = Contato Sistema Web = Olá Gabriel, vi um de seus sistemas e gostaria de conversar um pouco com você, pode ser?">e-mail</a></b>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    &copy; Copyright 2019
+                </div>
+            </div>
+        </footer>
+
+        <!--JavaScript-->
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.sidenav').sidenav();
+                $('select').formSelect();
+                $('.tabs').tabs();
+                $('.carousel').carousel();
+                $('.datepicker').datepicker({
+                    format:'yyyy-mm-dd',
+                    i18n:{
+                        months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                        monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                        weekdays: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabádo'],
+                        weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+                        today: 'Hoje',
+                        clear: 'Limpar',
+                        close: 'Pronto',
+                        labelMonthNext: 'Próximo mês',
+                        labelMonthPrev: 'Mês anterior',
+                        labelMonthSelect: 'Selecione um mês',
+                        labelYearSelect: 'Selecione um ano',
+                        selectMonths: true,
+                        selectYears: 15,
+                        cancel: 'Cancelar',
+                        clear: 'Limpar',
+                        showClearBtn: true,
+
+                        }
+                    });
+            });
+            {% block js %}
+            {% endblock %}
+        </script>
+    </body>
 </html>

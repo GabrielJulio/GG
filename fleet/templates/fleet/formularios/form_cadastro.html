@@ -1,11 +1,13 @@
 {% extends 'fleet/index.html' %}
-{% block title %}Formulario de Cadastro{% endblock %}
 {% load static %}
-{% block css %}
-<link rel="stylesheet" href="{% static 'css/fleet/form_cadastro.css' %}">
-{% endblock %}
+
+{% block title %}Formulario de Cadastro{% endblock %}
 
 {% block main %}
+<h1 class="red white-text">
+    Página sendo reformada visualmente, porem funcionando normalmente.
+</h1>
+<h3>- JavaScript já ok!</h3>
 {% if user.is_authenticated %}
 <form method="POST">
 	{% csrf_token %}
@@ -56,7 +58,7 @@
         </div>
     {% endif %}
 	<button type="submit">Salvar</button>
-    <a class="cancelar" href="{% url 'frota_principal' %}">Cancelar alterações</a>
+    <a class="cancelar" href="{% url 'pgprincipal' %}">Cancelar alterações</a>
     {% if form.instance.id %}
         {% if form.veiculo %}
             <a class="apagar" href="{% url 'apagar_viagem' form.instance.id %}">Apagar Viagem</a>
@@ -68,8 +70,9 @@
     {% endif %}
 </form>
 {% endif %}
+{% endblock %}
 
-<script language="JavaScript">
+{% block js %}
 $(document).ready(function(){
     var $placa = $("#id_placa");
     var $cpf = $("#id_cpf");
@@ -87,5 +90,4 @@ $(document).ready(function(){
     $saida.mask('00:00');
     $retorno.mask('00:00');
 });
-</script>
 {% endblock %}

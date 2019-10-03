@@ -15,13 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.contrib.auth.views import LoginView
-from fleet import views as login_only
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', login_only.home, name='pgprincipal'),
-    path('login/', LoginView.as_view(), name='entrar'),
-    path('logout/', login_only.meu_logout, name='sair'),
-    path('frota/', include('fleet.urls')),
+    path('', include('fleet.urls')),
+    path('python-admin/', admin.site.urls),
 ]

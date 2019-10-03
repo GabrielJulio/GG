@@ -30,7 +30,6 @@ class MotoristaForm(ModelForm):
 		model = Motorista
 		fields = [
 			'nome',
-			'sobrenome',
 			'cpf',
 			'data_nascimento',
 			'observacoes'
