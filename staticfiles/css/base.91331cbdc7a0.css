@@ -1,0 +1,38 @@
+html{
+    font-family: Roboto !important;
+}
+body{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main{
+    flex: 1 0 auto;
+}
+
+.datepicker-date-display{
+    background-color: #2979ff;
+}
+.datepicker-table td{
+    color: black;
+}
+.datepicker-table td.is-today{
+    color: #448aff;
+}
+.datepicker-table td.is-selected{
+    background-color: #448aff;
+    color: #fff;
+}
+.datepicker-done, .datepicker-cancel{
+    color: #2979ff;
+}
+.dropdown-content li>span{
+    color: #448aff;
+}
+
+#search_box{
+    color: white;
+}
+#search_box:focus{
+    color: black;
+}
