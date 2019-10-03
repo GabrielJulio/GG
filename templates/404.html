@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Página não encontrada
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <br>
+            <br>
+            <img class="col s8 push-s2" src="https://neilpatel.com/wp-content/uploads/2019/05/ilustracao-sobre-o-error-404-not-found.jpeg" width="650" alt="Erro 404">
+            <h5 class="col s4 pull-s4 card center blue-text z-depth-0">
+                Oops! Parece que algo deu errado.
+            </h5>
+        </div>
+        <div class="row">
+            <div class="center blue-text">
+                <h1 class="hide">Erro 404</h1>
+                <h4>
+                    Tente novamente, mas se o erro persistir informe ao responsável da página.
+                </h4>
+            </div>
+        </div>
+    </div>
+{% endblock %}
