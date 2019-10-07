@@ -71,7 +71,7 @@ def nova_viagem(request):
     form = ViagemForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('home')
+        return redirect('pgprincipal')
     return render(request, 'fleet/formularios/form_cadastro.html', {'form': form})
 
 
@@ -81,7 +81,7 @@ def atualizar_viagem(request, id):
     form = ViagemForm(request.POST or None, instance=viagem)
     if form.is_valid():
         form.save()
-        return redirect('home')
+        return redirect('pgprincipal')
     return render(request, 'fleet/formularios/form_cadastro.html', {'form': form})
 
 
@@ -90,7 +90,7 @@ def apagar_viagem(request, id):
     viagem = Viagem.objects.get(pk=id)
     if request.method == 'POST':
         viagem.delete()
-        return redirect('home')
+        return redirect('pgprincipal')
     return render(request, 'fleet/delete/confirmacao.html', {'viagem': viagem})
 
 
@@ -99,7 +99,7 @@ def novo_motorista(request):
     form = MotoristaForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('home')
+        return redirect('pgprincipal')
     return render(request, 'fleet/formularios/form_cadastro.html', {'form': form})
 
 
@@ -118,7 +118,7 @@ def apagar_motorista(request, id):
     motorista = Motorista.objects.get(pk=id)
     if request.method == "POST":
         motorista.delete()
-        return redirect('home')
+        return redirect('pgprincipal')
     return render(request, 'fleet/delete/confirmacao.html', {'motorista': motorista})
 
 
@@ -127,7 +127,7 @@ def novo_veiculo(request):
     form = VeiculoForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('home')
+        return redirect('pgprincipal')
     return render(request, 'fleet/formularios/form_cadastro.html', {'form': form})
 
 
@@ -137,7 +137,7 @@ def atualizar_veiculo(request, id):
     form = VeiculoForm(request.POST or None, instance=veiculo)
     if form.is_valid():
         form.save()
-        return redirect("home")
+        return redirect('pgprincipal')
     return render(request, 'fleet/formularios/form_cadastro.html', {'form': form})
 
 
@@ -146,5 +146,5 @@ def apagar_veiculo(request, id):
     veiculo = Veiculo.objects.get(pk=id)
     if request.method == 'POST':
         veiculo.delete()
-        return redirect('home')
+        return redirect('pgprincipal')
     return render(request, 'fleet/delete/confirmacao.html', {'veiculo': veiculo})
