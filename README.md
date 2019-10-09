@@ -8,7 +8,7 @@ Sistema de gestão personalizado desenvolvido para Giga7 Telecom.
 1. __*Em Desenvolvimento*__
 
 ## Metas
-- [x] **Lançamento do sistema [Office Manager G7](https://g7-om.herokuapp.com/) no [Heroku](http://heroku.com). + Lançamento da app Frota.**
+- [x] **Lançamento do sistema [Office Manager G7](https://g7-om.herokuapp.com/) no [Heroku](http://heroku.com) + Lançamento da app Frota.**
 - [x] **Barra de pesquisa própria da app Frota.**
 - [ ] **Lançamento da app Estoque.**
 - [ ] **Lançamento da app Despesas.**
