@@ -4,8 +4,6 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Viagem, Motorista, Veiculo
 from .form import VeiculoForm, MotoristaForm, ViagemForm
-
-
 from docx import Document
 
 
@@ -59,7 +57,7 @@ def home(request):
 
     # Criando relatorio das buscas em docx
     document = Document()
-    viagens = Viagem.objects.all().order_by('data')
+    viagens.order_by('data')
     for motorista in motoristas:
         document.add_heading(f'{motorista}', 0)
         resultados_tabela = []
@@ -84,7 +82,7 @@ def home(request):
     document.add_page_break()
     document.save('staticfiles/docx/relatorio.docx')
     document.save('static/docx/relatorio.docx')
-    viagens = Viagem.objects.all().order_by('-data')
+    viagens.order_by('-data')
 
 
     return render(request, 'fleet/index.html', {
