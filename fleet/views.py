@@ -29,6 +29,9 @@ def home(request):
     elif data_inicial == '' and data_final != '':
         viagens = viagens.filter(data__lte=data_final)
 
+    # Nao alterar - Lista ordenada para documento docx
+    viagens_docx = viagens.order_by('data')
+
     # Paginador
     paginador_viagem = Paginator(viagens, 4)
     paginador_veiculo = Paginator(veiculos, 3)
@@ -57,11 +60,10 @@ def home(request):
 
     # Criando relatorio das buscas em docx
     document = Document()
-    viagens.order_by('data')
     for motorista in motoristas:
         document.add_heading(f'{motorista}', 0)
         resultados_tabela = []
-        for viagem in viagens:
+        for viagem in viagens_docx:
             if viagem.motorista == motorista:
                 resultados_tabela.append((
                     viagem.data.strftime("%d/%m/%Y"),
@@ -82,7 +84,6 @@ def home(request):
     document.add_page_break()
     document.save('staticfiles/docx/relatorio.docx')
     document.save('static/docx/relatorio.docx')
-    viagens.order_by('-data')
 
 
     return render(request, 'fleet/index.html', {
