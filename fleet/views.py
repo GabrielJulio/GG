@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.http import FileResponse
 from .models import Viagem, Motorista, Veiculo
 from .form import VeiculoForm, MotoristaForm, ViagemForm
 
