@@ -36,13 +36,13 @@
             <div class="navbar-fixed">
                 <nav>
                     <div class="nav-wrapper blue accent-2">
-                        <a href="{% url 'pgprincipal' %}" class="center brand-logo">
+                        <a href="{% url 'home' %}" class="center brand-logo">
                             Frota
                         </a>
                         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
                             <li>
-                                <a href="{% url 'pgprincipal' %}">Página Inicial</a>
+                                <a href="{% url 'home' %}">Página Inicial</a>
                             </li>
                             {% if not user.is_authenticated %}
                                 <li>
@@ -59,7 +59,7 @@
             </div>
             <ul class="sidenav" id="mobile-demo">
                 <li>
-                    <a href="{% url 'pgprincipal' %}">Página Inicial</a>
+                    <a href="{% url 'home' %}">Página Inicial</a>
                 </li>
                 {% if not user.is_authenticated %}
                     <li>
@@ -92,7 +92,7 @@
                     <div class="col l6 s12">
                         <h5 class="white-text">Sobre</h5>
                         <p class="grey-text text-lighten-4">Desenvolvido por Gabriel Júlio
-                            <br>Sistema Office Manager v1.1.8
+                            <br>Sistema Office Manager v1.2
                             <br><a class="yellow-text text-lighten-3" href="https://github.com/GabrielJulio/GG/blob/master/README.md" target="_blank">Atualizações</a>
                         </p>
                     </div>

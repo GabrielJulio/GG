@@ -3,9 +3,11 @@ from django.contrib.auth.views import LoginView
 from . import views
 
 urlpatterns = [
-    path('', views.home, name='pgprincipal'),
+    path('', views.home, name='home'),
     path('login/', LoginView.as_view(), name='entrar'),
     path('logout/', views.meu_logout, name='sair'),
+    path('relatorio/', views.meu_logout, name='download_relatorio'),
+    path('teste/', views.teste, name='teste'),
 
     path('viagem/nova', views.nova_viagem, name='nova_viagem'),
     path('viagem/atualizar/<int:id>', views.atualizar_viagem, name='atualizar_viagem'),
@@ -19,4 +21,3 @@ urlpatterns = [
     path('veiculo/atualizar/<int:id>', views.atualizar_veiculo, name='atualizar_veiculo'),
     path('veiculo/apagar/<int:id>', views.apagar_veiculo, name='apagar_veiculo'),
 ]
-

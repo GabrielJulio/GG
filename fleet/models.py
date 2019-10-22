@@ -8,8 +8,8 @@ class Veiculo(models.Model):
 	CARRO = "Carro"
 	MOTO = "Moto"
 	TIPO_VEICULO_ESCOLHAS = [
-	(CARRO, "Carro"),
-	(MOTO, "Moto"),
+		(CARRO, "Carro"),
+		(MOTO, "Moto"),
 	]
 	tipo_veiculo = models.CharField(max_length=5, choices=TIPO_VEICULO_ESCOLHAS, default=CARRO)
 	nome = models.CharField(max_length=50)

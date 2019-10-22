@@ -19,7 +19,11 @@
                         <div class="left input-field col s4 m2">
                             <input name="data_final" type="text" class="datepicker left" placeholder="Data Final">
                         </div>
-
+                        {% if request.method == 'POST' %}
+                        <div class="col l2 push-l1 btn blue accent-2">
+                            <a href="{% static 'docx/relatorio.docx' %}" download>Baixar Relatorio</a>
+                        </div>
+                        {% endif %}
                         <button type="submit" class="btn right blue accent-2">
                             Pesquisar
                         </button>

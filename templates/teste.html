@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Relatório{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        <nav>
+            <div class="nav-wrapper light-blue darken-1">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="input-field z-depth-0">
+                        <input id="search_box" name="pesquisa" type="search" placeholder="Pesquisa">
+                        <label class="label-icon"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                        <div class="left input-field col s4 m2">
+                            <input name="data_inicial" type="text" class="datepicker left" placeholder="Data Inicial">
+                        </div>
+                        <div class="left input-field col s4 m2">
+                            <input name="data_final" type="text" class="datepicker left" placeholder="Data Final">
+                        </div>
+
+                        <button type="submit" class="btn right blue accent-2">
+                            Pesquisar
+                        </button>
+                    </div>
+                    <div class="row"></div>
+                    <div class="row">
+                        <div class="col s12 m6 push-m3 l4 push-l4 card-panel center blue z-depth-0">
+                            Filtros
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="divider"></div>
+                    </div>
+                    <div class="input-field col l2 push-l1">
+                        <select name="sel_viagem" multiple>
+                            <option disabled selected>Viagens</option>
+                            <option value="sel_veiculo">Veiculo</option>
+                            <option value="sel_motorista">Motorista</option>
+                            <option value="sel_observacoes">Observações</option>
+                        </select>
+                    </div>
+                    {% if request.method == 'POST' %}
+                    <div class="col s4 push-s2 l2 push-l4 btn blue">
+                        <a href="{% url 'download_relatorio' %}">Relatorio</a>
+                    </div>
+                    {% endif %}
+                    <!-- Save code for soon
+                    <div class="input-field col l2 push-l3">
+                        <select multiple>
+                            <option disabled selected>Veículos</option>
+                            <option value="">Nome</option>
+                            <option value="">Marca</option>
+                            <option value="">Observações</option>
+                            <optgroup label="Tipo de Veículo">
+                                <option value="">Carro</option>
+                                <option value="">Moto</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="input-field col l2 push-l5">
+                        <select multiple>
+                            <option disabled selected>Motoristas</option>
+                            <option value="">Nome</option>
+                            <option value="">Observações</option>
+                        </select>
+                    </div>
+                    -->
+                </form>
+            </div>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col s12 m6 push-m3 l2 push-l5 card-panel center blue z-depth-0">
+            Resultados
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m6 push-m3 l2 push-l5 card-panel center blue z-depth-0">
+            .
+        </div>
+    </div>
+</div>
+{% endblock %}
