@@ -13,10 +13,10 @@
                         <input id="search_box" name="pesquisa" type="search" placeholder="Pesquisa">
                         <label class="label-icon"><i class="material-icons">search</i></label>
                         <i class="material-icons">close</i>
-                        <div class="left input-field col s3 m2">
+                        <div class="left input-field col s4 m2">
                             <input name="data_inicial" type="text" class="datepicker left" placeholder="Data Inicial">
                         </div>
-                        <div class="left input-field col s3 m2">
+                        <div class="left input-field col s4 m2">
                             <input name="data_final" type="text" class="datepicker left" placeholder="Data Final">
                         </div>
                         {% if request.method == 'POST' and user.is_authenticated %}
@@ -24,7 +24,7 @@
                             <a href="{% static 'docx/relatorio.docx' %}" download>Relatório</a>
                         </div>
                         {% endif %}
-                        <button type="submit" class="col s2 m3 l2 btn right waves-effect waves-light blue accent-2">
+                        <button type="submit" class="col s4 m3 l2 btn right waves-effect waves-light blue accent-2">
                             Buscar
                         </button>
                     </div>
